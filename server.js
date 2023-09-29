@@ -148,4 +148,4 @@ app.post("/update-cart", async (req, res) => {
 });
 
 const server = https.createServer(credentials, app);
-server.listen(4242, () => console.log("Node server listening on port 4242!"));
+server.listen(443, () => console.log("Node server listening on port 4242!"));
