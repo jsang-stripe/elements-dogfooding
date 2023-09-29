@@ -1,10 +1,5 @@
 const express = require("express");
-var https = require("https");
-const fs = require("fs");
-var privateKey = fs.readFileSync("localhost-key.pem", "utf8");
-var certificate = fs.readFileSync("localhost.pem", "utf8");
 
-var credentials = { key: privateKey, cert: certificate };
 const app = express();
 // This is your test secret API key.
 const stripe = require("stripe")(
@@ -146,8 +141,8 @@ app.post("/update-cart", async (req, res) => {
     amount: Math.ceil(amount),
   });
 });
-const port = process.env.PORT || 4242;  
-const server = https.createServer(credentials, app);
-server.listen(port, "0.0.0.0", () =>
+const port = process.env.PORT || 4242;
+
+app.listen(port, "0.0.0.0", () =>
   console.log("Node server listening on port " + port)
 );
