@@ -1,0 +1,272 @@
+/* Variables */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  background-color: #000000;
+}
+
+form {
+}
+
+.hidden {
+  display: none;
+}
+
+#payment-message {
+  color: rgb(105, 115, 134);
+  font-size: 16px;
+  line-height: 20px;
+  padding-top: 12px;
+  text-align: center;
+}
+
+#payment-element {
+  margin-bottom: 24px;
+}
+
+#express-checkout-element {
+  margin-bottom: 8px;
+}
+
+#link-authentication-element {
+  margin-bottom: 36px;
+}
+
+#address-element {
+  margin-bottom: 36px;
+}
+
+/* Buttons and links */
+#submit {
+  background: #00ff00;
+  font-family: Courier, monospace;
+  color: #000000;
+  border-radius: 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+}
+button:hover {
+  filter: contrast(115%);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#coupon-field {
+  margin-bottom: 12px;
+}
+
+#coupon-field > button {
+  font-family: Courier, monospace;
+  border: 0;
+  padding: 2px 2px;
+  margin-left: 4px;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+
+}
+
+#coupon-field > input {
+  font-family: Courier, monospace;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #262626;
+}
+
+/* variables: {
+  colorPrimary: "#00ff00",
+  colorBackground: "#000000", // black background typical of a UNIX terminal
+  colorText: "#ffffff", // white text for good contrast on the black background
+  colorDanger: "#ff0000",
+  fontFamily: "Courier, monospace", // monospace font typical of a terminal
+  spacingUnit: "2px",
+  borderRadius: "0px", // terminals usually have hard corners
+  // See all possible variables below
+}, */
+
+/* spinner/processing state, errors */
+.spinner,
+.spinner:before,
+.spinner:after {
+  border-radius: 50%;
+}
+.spinner {
+  color: #000000;
+  font-size: 22px;
+  text-indent: -99999px;
+  margin: 0px auto;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  box-shadow: inset 0 0 0 2px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.spinner:before,
+.spinner:after {
+  position: absolute;
+  content: "";
+}
+.spinner:before {
+  width: 10.4px;
+  height: 20.4px;
+  background: #00ff00;
+  border-radius: 20.4px 0 0 20.4px;
+  top: -0.2px;
+  left: -0.2px;
+  -webkit-transform-origin: 10.4px 10.2px;
+  transform-origin: 10.4px 10.2px;
+  -webkit-animation: loading 2s infinite ease 1.5s;
+  animation: loading 2s infinite ease 1.5s;
+}
+.spinner:after {
+  width: 10.4px;
+  height: 10.2px;
+  background: #00ff00;
+  border-radius: 0 10.2px 10.2px 0;
+  top: -0.1px;
+  left: 10.2px;
+  -webkit-transform-origin: 0px 10.2px;
+  transform-origin: 0px 10.2px;
+  -webkit-animation: loading 2s infinite ease;
+  animation: loading 2s infinite ease;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    width: 80vw;
+    min-width: initial;
+  }
+}
+
+#add-ons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#wrapper {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-left: 10%;
+}
+
+#preview {
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding: 24px;
+}
+
+#payment-form-wrapper {
+  flex: 0 0 40%;
+  min-width: 500px;
+  align-self: flex-start;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  padding: 40px;
+  background-color: #000000;
+  min-height: 100%;
+}
+
+.terminal {
+  width: 100%;
+  background: #000000;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  border-radius: 10px;
+}
+
+.command {
+  margin-bottom: 0;
+}
+
+.cursor {
+  width: 10px;
+  height: 20px;
+  background: #fff;
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+}
+
+.option:hover {
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+}
+
+.option {
+  padding: 6px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5em;
+  display: inline-block;
+}
+
+.option.selected {
+  background-color: #fff;
+  color: #000000;
+}
+
+.form-section-title {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  margin-bottom: 4px;
+}
+
+.hidden {
+  display: none;
+}
