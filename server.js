@@ -148,4 +148,6 @@ app.post("/update-cart", async (req, res) => {
 });
 const port = process.env.PORT || 4242;  
 const server = https.createServer(credentials, app);
-server.listen(port, () => console.log("Node server listening on port " + port));
+server.listen(port, "0.0.0.0", () =>
+  console.log("Node server listening on port " + port)
+);
