@@ -146,6 +146,6 @@ app.post("/update-cart", async (req, res) => {
     amount: Math.ceil(amount),
   });
 });
-
+const port = process.env.PORT || 4242;  
 const server = https.createServer(credentials, app);
-server.listen(443, () => console.log("Node server listening on port 4242!"));
+server.listen(port, () => console.log("Node server listening on port " + port));
